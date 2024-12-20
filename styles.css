@@ -1,0 +1,247 @@
+/* Reset básico de estilos */
+* {
+    margin: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+    box-sizing: border-box;
+}
+
+/* Estilos do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-size: 12px; /* Ajuste de fonte para otimizar a impressão */
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between; /* Para alinhar os itens à esquerda e direita */
+    align-items: center; /* Para centralizar verticalmente os elementos */
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Garante que os itens do cabeçalho podem se mover para a linha seguinte se necessário */
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px; /* Um pequeno espaçamento entre a imagem e o título */
+}
+
+.header h1 {
+    font-size: 22px;
+    color: #333;
+    margin: 0; /* Remover margens para um alinhamento mais preciso */
+    text-align: center; /* Garantir que o título fique centralizado em telas menores */
+}
+
+/* Seção de dados de O.S. */
+.os-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.os-info .os-number, .os-info .date {
+    width: 48%;
+}
+
+.os-info label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.os-info input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+/* Formulário de Dados do Cliente */
+.client-data {
+    margin-top: 10px;
+}
+
+.client-data h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-left, .form-right {
+    width: 48%;
+}
+
+.form-row {
+    margin-bottom: 8px;
+}
+
+.form-row label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+/* Informações do Produto */
+.product-info {
+    margin-top: 10px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-info .form-row {
+    margin-bottom: 8px;
+}
+
+.product-info .form-row input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+/* Seções de reclamação, diagnóstico e garantia */
+.complaint-section, .budget-section {
+    margin-top: 15px;
+}
+
+.complaint-section h3, .budget-section h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.complaint-section textarea, .budget-section input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.complaint-section textarea {
+    height: 105px;
+}
+
+.assignature {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-left: 80px;
+}
+
+/* Rodapé */
+.footer {
+    text-align: left;
+    font-size: 10px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Botão de impressão */
+#printButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;          /* Faz o botão se comportar como um bloco */
+    margin: 0 auto;          /* Centraliza o botão horizontalmente */
+    margin-bottom: 50px;
+}
+
+#printButton:hover {
+    background-color: #45a049;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .os-info, .form-container, .signature-section {
+        flex-direction: column;
+    }
+
+    .os-info .os-number, .os-info .date, .form-left, .form-right, .signature-left, .signature-right {
+        width: 100%;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+
+/* Estilo para Impressão - Ajustando para A4 */
+@media print {
+    body {
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header, .footer, .signature-section, .os-info, .client-data, .product-info, .complaint-section, .budget-section {
+        page-break-before: avoid;
+    }
+
+    .signature-section {
+        page-break-before: always;
+    }
+
+    /* Garantir que a impressão caiba em uma página A4 */
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    /* Garantir que o conteúdo não quebre em várias páginas */
+    .os-info, .client-data, .product-info, .complaint-section, .budget-section, .signature-section, .footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .footer {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    /* Forçar que o conteúdo ocupe uma única página A4 */
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Ajustando as margens para reduzir o uso de espaço */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Esconde o botão de impressão ao imprimir */
+    #printButton {
+        display: none;
+    }
+}

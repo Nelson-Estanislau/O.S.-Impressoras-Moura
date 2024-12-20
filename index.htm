@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Logo no título da aba -->
+        <link rel="icon" href="img/ico_logo.ico" type="image/png">
+    <title>Impressoras Moura</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Cabeçalho com a imagem e título lado a lado -->
+    <div class="header">
+        <img src="img/logo.png" alt="Logo">
+        <h1>ORDEM DE SERVIÇO</h1>
+    </div>
+
+    <!-- Formulário de O.S. -->
+    <div class="os-info">
+        <div class="os-number">
+            <label for="os-number">O.S. Nº:</label>
+            <input type="text" id="os-number" name="os-number">
+        </div>
+        <div class="date">
+            <label for="date">DATA DA ABERTURA:</label>
+            <input type="date" id="date" name="date">
+        </div>
+    </div>
+
+    <!-- Dados do Cliente -->
+    <div class="client-data">
+        <h3>DADOS DO CLIENTE</h3>
+        <div class="form-container">
+            <div class="form-left">
+                <div class="form-row">
+                    <label for="name">NOME:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-row">
+                    <label for="address">ENDEREÇO:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="form-row">
+                    <label for="city">CIDADE:</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-row">
+                    <label for="phone">TELEFONE:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-right">
+                <div class="form-row">
+                    <label for="cpf-cnpj">CPF/CNPJ:</label>
+                    <input type="text" id="cpf-cnpj" name="cpf-cnpj">
+                </div>
+                <div class="form-row">
+                    <label for="neighborhood">BAIRRO:</label>
+                    <input type="text" id="neighborhood" name="neighborhood">
+                </div>
+                <div class="form-row">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep">
+                </div>
+                <div class="form-row">
+                    <label for="email">E-MAIL:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informações do Produto -->
+    <div class="product-info">
+        <h3>INFORMAÇÕES DO PRODUTO</h3>
+        <div class="form-row">
+            <label for="model">MODELO:</label>
+            <input type="text" id="model" name="model">
+        </div>
+        <div class="form-row">
+            <label for="details">DETALHES:</label>
+            <input type="text" id="details" name="details">
+        </div>
+    </div>
+
+    <!-- Reclamação do Cliente -->
+    <div class="complaint-section">
+        <h3>RECLAMAÇÃO DO CLIENTE</h3>
+        <textarea id="complaint" name="complaint" rows="6" maxlength="1000" placeholder="Digite a reclamação do cliente aqui..."></textarea>
+    </div>
+
+    <div class="complaint-section">
+        <h3>DIAGNÓSTICO E SERVIÇO A SER EXECUTADO</h3>
+        <textarea id="diagnosis" name="diagnosis" rows="6" maxlength="1000" placeholder="Digite o diagnóstico e serviço a ser executado..."></textarea>
+    </div>
+
+    <div class="complaint-section">
+        <h3>GARANTIA E OUTRAS OBSERVAÇÕES</h3>
+        <textarea id="warranty" name="warranty" rows="6" maxlength="1000" placeholder="Digite a garantia e outras observações..."></textarea>
+    </div>
+
+    <!-- Orçamento -->
+    <div class="budget-section">
+        <h3>ORÇAMENTO</h3>
+        <div class="form-row">
+            <label for="service-value">VALOR DOS SERVIÇOS:</label>
+            <input type="text" id="service-value" name="service-value" placeholder="0,00" oninput="updateTotal()">
+        </div>
+        <div class="form-row">
+            <label for="parts-value">VALOR DE PEÇAS/PRODUTOS:</label>
+            <input type="text" id="parts-value" name="parts-value" placeholder="0,00" oninput="updateTotal()">
+        </div>
+        <div class="form-row">
+            <label for="total-value">VALOR TOTAL:</label>
+            <input type="text" id="total-value" name="total-value" readonly placeholder="R$ 0,00">
+        </div>
+    </div>
+    
+    <div class="assignature">
+        __________________________________
+        <br> 
+        <span>Assinatura do Cliente</span>
+        <br>
+        <br>
+        <br>
+        Augusto Moura
+        <br>
+        __________________________________
+        <br> 
+        <span>Técnico Responsável</span>
+    </div>
+
+    <div class="footer">
+        <p>Impressoras Moura</p>
+        <p>mourasolucoes00@gmail.com</p>
+        <p>Av Dois Rios, 683 Ibura - Cep 51230-000 Recife-PE</p>
+    </div>
+
+    <!-- Botão de impressão -->
+    <div class="footer">
+        <button id="printButton" onclick="window.print()">Imprimir</button>
+    </div>
+
+</body>
+</html>
